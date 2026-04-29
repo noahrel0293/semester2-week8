@@ -4,12 +4,6 @@
 
 #include "shapes.h"
 
-Point makePoint( float x, float y ) {
-    Point new;
-    // implementation
-    return new;
-}
-
 // complete other functions below
 // - start with stubs as above
 // - compile regularly to test syntax
@@ -86,7 +80,7 @@ bool samePoint( Point p1, Point p2 ){
     bool returnVal = false;
     Line pointsLine = makeLine(p1, p2);
     float pointsLineLength = lineLength(pointsLine);
-    if(abs(pointsLineLength)<1.0e-6){
+    if(pointsLineLength<1.0e-6){
         returnVal = true;
     }
     return returnVal;
