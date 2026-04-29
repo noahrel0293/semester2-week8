@@ -1,6 +1,7 @@
 
 #include <stdbool.h>
 #include <math.h>
+#include <stdio.h>
 
 #include "shapes.h"
 
@@ -44,35 +45,36 @@ float lineLength( Line l ){
 float triangleArea( Triangle t ){
     float xLngth;
     float yLngth;
-    if(t.p[0].x<t.p[1].x && t.p[0].x<t.p[2].x && t.p[1].x>t.p[2].x){
+    if(t.p[0].x<=t.p[1].x && t.p[0].x<=t.p[2].x && t.p[1].x>=t.p[2].x){
         xLngth = t.p[1].x - t.p[0].x;
-    } else if(t.p[0].x<t.p[1].x && t.p[0].x<t.p[2].x && t.p[2].x>t.p[1].x){
+    } else if(t.p[0].x<=t.p[1].x && t.p[0].x<=t.p[2].x && t.p[2].x>=t.p[1].x){
         xLngth = t.p[2].x - t.p[0].x;
-    } else if(t.p[1].x<t.p[0].x && t.p[1].x<t.p[2].x && t.p[0].x>t.p[2].x){
+    } else if(t.p[1].x<=t.p[0].x && t.p[1].x<=t.p[2].x && t.p[0].x>=t.p[2].x){
         xLngth = t.p[0].x - t.p[1].x;
-    } else if(t.p[1].x<t.p[0].x && t.p[1].x<t.p[2].x && t.p[2].x>t.p[0].x){
+    } else if(t.p[1].x<=t.p[0].x && t.p[1].x<=t.p[2].x && t.p[2].x>=t.p[0].x){
         xLngth = t.p[2].x - t.p[1].x;
-    } else if(t.p[2].x<t.p[0].x && t.p[2].x<t.p[1].x && t.p[0].x>t.p[1].x){
+    } else if(t.p[2].x<=t.p[0].x && t.p[2].x<=t.p[1].x && t.p[0].x>=t.p[1].x){
         xLngth = t.p[0].x - t.p[2].x;
-    } else if(t.p[2].x<t.p[0].x && t.p[2].x<t.p[1].x && t.p[1].x>t.p[0].x){
+    } else if(t.p[2].x<=t.p[0].x && t.p[2].x<=t.p[1].x && t.p[1].x>=t.p[0].x){
         xLngth = t.p[1].x - t.p[2].x;
     }
 
-    if(t.p[0].y<t.p[1].y && t.p[0].y<t.p[2].y && t.p[1].y>t.p[2].y){
+    if(t.p[0].y<=t.p[1].y && t.p[0].y<=t.p[2].y && t.p[1].y>=t.p[2].y){
         yLngth = t.p[1].y - t.p[0].y;
-    } else if(t.p[0].y<t.p[1].y && t.p[0].y<t.p[2].y && t.p[2].y>t.p[1].y){
+    } else if(t.p[0].y<=t.p[1].y && t.p[0].y<=t.p[2].y && t.p[2].y>=t.p[1].y){
         yLngth = t.p[2].y - t.p[0].y;
-    } else if(t.p[1].y<t.p[0].y && t.p[1].y<t.p[2].y && t.p[0].y>t.p[2].y){
+    } else if(t.p[1].y<=t.p[0].y && t.p[1].y<=t.p[2].y && t.p[0].y>=t.p[2].y){
         yLngth = t.p[0].y - t.p[1].y;
-    } else if(t.p[1].y<t.p[0].y && t.p[1].y<t.p[2].y && t.p[2].y>t.p[0].y){
+    } else if(t.p[1].y<=t.p[0].y && t.p[1].y<=t.p[2].y && t.p[2].y>=t.p[0].y){
         yLngth = t.p[2].y - t.p[1].y;
-    } else if(t.p[2].y<t.p[0].y && t.p[2].y<t.p[1].y && t.p[0].y>t.p[1].y){
+    } else if(t.p[2].y<=t.p[0].y && t.p[2].y<=t.p[1].y && t.p[0].y>=t.p[1].y){
         yLngth = t.p[0].y - t.p[2].y;
-    } else if(t.p[2].y<t.p[0].y && t.p[2].y<t.p[1].y && t.p[1].y>t.p[0].y){
+    } else if(t.p[2].y<=t.p[0].y && t.p[2].y<=t.p[1].y && t.p[1].y>=t.p[0].y){
         yLngth = t.p[1].y - t.p[2].y;
     }
-
-    float triArea = (sqrt(xLngth*xLngth) * sqrt(yLngth*yLngth)) / 2;
+    float lngthsMult = sqrt(xLngth*xLngth) * sqrt(yLngth*yLngth);
+    printf("%f\n", lngthsMult);
+    float triArea = lngthsMult / 2.0;
     return triArea;
 }
 
