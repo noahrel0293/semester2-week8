@@ -72,7 +72,7 @@ float triangleArea( Triangle t ){
         yLngth = t.p[1].y - t.p[2].y;
     }
 
-    float triArea = (xLngth * yLngth) / 2;
+    float triArea = (sqrt(xLngth*xLngth) * sqrt(yLngth*yLngth)) / 2;
     return triArea;
 }
 
