@@ -73,7 +73,6 @@ float triangleArea( Triangle t ){
         yLngth = t.p[1].y - t.p[2].y;
     }
     float lngthsMult = sqrt(xLngth*xLngth) * sqrt(yLngth*yLngth);
-    printf("%f\n", lngthsMult);
     float triArea = lngthsMult / 2.0;
     return triArea;
 }
